@@ -88,4 +88,5 @@ public class Subscription {
     public void setUser(User user) {
         this.user = user;
     }
+
 }
