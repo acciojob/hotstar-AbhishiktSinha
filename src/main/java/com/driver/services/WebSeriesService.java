@@ -47,6 +47,7 @@ public class WebSeriesService {
         SubscriptionType subscriptionType = webSeriesEntryDto.getSubscriptionType();
 
         WebSeries webSeries = new WebSeries(name, ageLimit, rating, subscriptionType);
+        webSeries = webSeriesRepository.save(webSeries);
 
         //associate WebSeries object with its ProductionHouse
         webSeries.setProductionHouse(productionHouse);
@@ -65,7 +66,7 @@ public class WebSeriesService {
         //save parent
         productionHouseRepository.save(productionHouse);
 
-        int webSeriesId = webSeriesRepository.findBySeriesName(name).getId();
+        int webSeriesId = webSeries.getId();
 
         return webSeriesId;
     }
